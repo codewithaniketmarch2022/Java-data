@@ -1,0 +1,119 @@
+Structure of node(root)       
+       
+
+        Node root
+	static class Node
+	{
+		int data;
+		Node left;
+		Node right;
+		
+		Node(int d) //constructor.....
+		{
+		  data = d;
+	          left = null;
+		  right = null;
+		}
+	}
+
+*****************************************************************************************************************************
+Tree traversal- Preorder..
+
+
+void printPreorder(Node n)//Root, LC, RC
+{
+	if(n == null)
+		return;
+	System.out.println(n.data);
+	printPreorder(n.left);
+	printPreorder(n.right);	
+}
+
+*****************************************************************************************************************************
+Tree traversal- Inorder..
+
+
+void printInorder(Node n)//Lc,Root, RC
+{
+	if(n == null)
+		return;
+	printInorder(n.left);
+	System.out.println(n.data);
+	printInorder(n.right);	
+}
+
+*****************************************************************************************************************************
+Tree traversal- Postorder..
+
+
+void printPreorder(Node n)//Root, LC, RC
+{
+	if(n == null)
+		return;
+	System.out.println(n.data);
+	printPreorder(n.left);
+	printPreorder(n.right);	
+}
+
+*****************************************************************************************************************************
+Insertion in BST-
+
+
+Node insertdata(Node root, int key)
+{
+	if(root == null)
+	{
+		root = new Node(key);
+		return root;
+	}
+	if(key <= root.data)
+		root.left = insertdata(root.left,key);
+	else
+		root.right = insertdata(root.right,key);
+		return root;
+}
+
+*****************************************************************************************************************************
+Deletion in BST-
+
+
+Node deletedata(Node root, int key)  //passing root value and deleted value.........
+{
+  if(root == null)
+    return root;
+  if(key < root.data)
+    root.left= deletedata(root.left, key);
+  else if(key > root.data)
+    root.right= deletedata(root.right, key);
+  else
+  {
+  //case 1, 2
+  if(root.left == null)        //if left node is 0..
+    return root.right;
+  else if(root.right == null)  //if right node is 0..
+    return root.left; 
+  }
+return root; //finally return the root value...
+}
+
+*****************************************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
