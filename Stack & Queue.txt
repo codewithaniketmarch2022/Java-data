@@ -1,0 +1,186 @@
+- Array Implementation of Stack..  
+ 
+
+To check Stack is empty or not- 
+
+
+int s[] = new int [n]; //size of stack
+int top;
+
+boolean isEmpty() // return true or false..
+ {
+   return (top < 0);
+ }
+
+**********************************************************************************************************************
+To perform insertion operation : PUSH()	
+
+
+int s[] = new int [n]; //size of stack
+int top;
+
+boolean push(int x) //method(boolean is return type)
+	{
+		if(top >= n-1){
+			System.out.println("Overflow !!!");
+			return false;
+		}
+		else {
+		
+			s[++top] = x; // it means top=top+1;
+			System.out.println(x+"----> Push operation!!!");  //It print the push elements....
+			return true;
+		
+		}
+			
+	}
+
+*************************************************************************************************************************
+To perform deletion operation : POP()
+	
+
+int s[] = new int [n]; //size of stack
+int top;
+
+	int pop() //method(int is return type)
+	{
+		if(top < 0){
+		 System.out.println("Underflow !!!");
+		 return 0;
+		}
+
+		else {
+		 int x = s[top--]; // it means top=top-1;
+		 return x;
+		}
+	}
+
+*************************************************************************************************************************
+To get the current status of TOP - peek()
+
+
+
+int s[] = new int [n]; //size of stack
+int top;
+
+      int peek() //method(int is return type)
+      {
+	   if(top < 0){
+		System.out.println("Underflow !!!");
+		return 0;
+		}
+	   else{
+		int x = s[top];
+		return x;
+      }
+}
+
+************************************************************************************************************************
+Simple queue - for checking queue is full or not...
+
+
+         boolean isFull()
+	    {
+	      if(front==0 && rear == max-1)
+	         {return true;}
+		 return false;
+	    }
+
+****************************************************************************************************************************
+Simple queue - for checking queue is Empty or not...
+
+
+        boolean isEmpty()
+	   {
+	      if(front == -1)
+
+	      {return true;}
+	       return false;
+	   }
+
+*****************************************************************************************************************************
+Code for Enqueue() - fo Insertion........
+
+
+           void enqueue(int element)
+	      {
+			   if(isFull())
+			      System.out.println("Queue is Full !!!");
+			   else
+			   {
+				//Checking for first queue element
+				if(front == -1)
+				{
+					front = 0;
+				}
+				rear++;
+				Q[rear]=element;
+				System.out.println("Insertion done !!!");
+				
+			   }
+			 	
+	      }
+
+*****************************************************************************************************************************
+Code for Dequeue() - For Deletion.......
+
+
+int dequeue()
+	{
+		int element;
+		if(isEmpty())
+		{
+			System.out.println("Queue is Empty !!!");
+			return  -1;
+		}
+		else
+		{
+			element = Q[front];
+			//remaining one element in queue
+			if(front > rear)
+			{
+				front=-1;
+				rear=-1;
+			}
+			else
+			{
+				front++;
+			}
+			System.out.println("Deleted element = "+ element);
+			return element;
+					
+			
+		}
+	}
+
+*****************************************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
