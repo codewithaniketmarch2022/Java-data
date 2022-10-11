@@ -1,0 +1,49 @@
+Abstraction Achievement - 
+
+
+abstract class Bike
+   {
+   abstract void run(); // this data is hide because of security...
+   }
+ class Honda extends Bike{
+  public void run()
+  {
+    System.out.println("Honda is nice bike");
+  }
+  }
+ class Demo{
+ public static void main(String [] args){
+ 
+  Bike obj=new Honda();
+  obj.run();
+  }
+  }
+
+*******************************************************************************************************************
+Encapsulation achievement
+
+-Declare the class variable as a private.
+-provide the getter and setter methods for modify and view the variable values.
+-In Encapsulation, the variables of class will be hidden from other classes,and can be accessed through the methods of current class,This concept is data hiding...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
