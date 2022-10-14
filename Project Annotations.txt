@@ -1,0 +1,107 @@
+1) @crossorigin - 
+@CrossOrigin annotation enables cross-origin resource sharing only for this specific method
+
+
+2) @RestController -
+RestController annotation is used to create RESTful web services using Spring MVC.RestController takes care of mapping request data to the defined request handler method. Once response body is generated from the handler method, it converts it to JSON or XML response.
+
+
+3) @RequestMapping - 
+@RequestMapping annotation is used to map web requests onto specific handler classes and handler methods. @RequestMapping can be applied to the controller class as well as methods.
+
+
+
+4) @GetMapping -
+@GetMapping annotation maps HTTP GET requests onto specific handler methods. It is a composed annotation that acts as a shortcut for @RequestMapping(method = RequestMethod.GET).
+
+
+
+5) @postMapping -  
+The POST HTTP method is used to create a resource and @PostMapping annotation for mapping HTTP POST requests onto specific handler methods.
+
+
+6) @PutMapping -
+ @PutMapping annotation for mapping HTTP PUT requests onto specific handler methods.
+
+
+7) @DeleteMapping - 
+@DeleteMapping annotation maps the HTTP DELETE requests onto specific handler methods of a Spring controller. 
+
+
+
+8) @RequestBody - 
+RequestBody annotation maps the HttpRequest body to a transfer or domain object, enabling automatic deserialization of the inbound HttpRequest body onto a Java object.
+
+
+
+9) @ResponseBody - 
+The @ResponseBody annotation tells a controller that the object returned is automatically serialized into JSON and passed back into the HttpResponse object.
+
+
+10) @SuppressWarnings - 
+@SuppressWarnings annotation type allows Java programmers to disable compilation warnings for a certain part of a program.
+
+
+11) @column - 
+@Column annotation is used for Adding the column the name in the table of a particular MySQL database.
+
+
+
+12) @GeneratedValue -
+If we want to automatically generate the primary key value, we can add the @GeneratedValue annotation.
+
+
+
+13) @Entity - 
+@Entity annotation specifies that the class is an entity and is mapped to a database table.
+
+14) @oneToOne - 
+
+
+15) @oneToMany - 
+
+
+16) @ManyToOne - 
+
+
+17) @ManyToMany - 
+
+
+
+18) @JoinColumn -
+@JoinColumn is used to specify a column for joining an entity association or element collection.
+
+
+19) @Id - 
+@Id annotation specifies the primary key of an entity.
+
+
+20) @Transactional - 
+ @Transactional annotation is the metadata that specifies the semantics of the transactions on a method. We have two ways to rollback a transaction: declarative and programmatic.
+
+
+21) @Service - 
+@Service annotation is used with classes that provide some business functionalities.
+
+
+22) @component - 
+@Component is an annotation that allows Spring to automatically detect our custom beans.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
