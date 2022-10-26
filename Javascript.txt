@@ -1,0 +1,199 @@
+
+In javascript id can be represented as # and Class can be represented as .
+
+Features of JavaScript -   
+************************
+
+-It is a case-sensitive language.
+-JavaScript is supportable in several operating systems including, Windows, macOS, etc.
+-It is a light-weighted and interpreted language.
+-JavaScript is an object-based programming language.
+-JavaScript follows the syntax and structure of the C programming language. Thus, it is a structured programming language.
+-All popular web browsers support JavaScript as they provide built-in execution environments.
+
+
+
+
+Applications Of Javascript -
+**************************** 
+
+-Web Development
+-Web Applications
+-Presentations
+-Server Applications
+-Games
+-Art
+-Smartwatch Apps
+-Mobile Apps
+-Flying Robots,
+
+
+
+
+
+Javascript by using Id....
+**************************
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function myFunction() {
+  document.getElementById("demo").innerHTML = "I am Aniket Nalavade...";
+}
+</script>
+</head>
+<body>
+
+<h2>...!!! Hello CDAC Mumbai ..!!!</h2>
+
+<p id="demo"></p>
+
+<button type="button" onclick="myFunction()">click</button>
+
+</body>
+</html> 
+
+**************************************************************************************************************
+
+Javascript by using ByClassName -
+*********************************
+
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>The Element Object</h1>
+<h2>The getElementsByClassName() Method</h2>
+
+<ul class="example">
+  <li class="child">Coffee</li>
+  <li class="child">Tea</li>
+</ul>
+
+<p>Click "Change" to change the text of the first list item:</p>
+<button onclick="myFunction()">Change</button>
+
+<script>
+function myFunction() {
+  const list = document.getElementsByClassName("example")[0];
+  list.getElementsByClassName("child")[0].innerHTML = "Milk";
+}
+</script>
+
+</body>
+</html>
+
+**************************************************************************************************************
+
+
+Javascript by using Name....
+****************************
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>The Document Object</h1>
+<h2>The document.getElementsByName Method</h2>
+
+<p>First Name: <input name="fname" type="text" value="Michael"></p>
+<p>First Name: <input name="fname" type="text" value="Doug"></p>
+
+<p>The tag name of the first element with the name "fname" is:</p>
+
+<p id="demo"></p>
+
+<script>
+let elements = document.getElementsByName("fname");
+document.getElementById("demo").innerHTML = elements[0].tagName;
+</script>
+
+</body>
+</html>
+
+**************************************************************************************************************
+
+Javascript by using getElementsByTagName() - 
+********************************************
+
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>The Element Object</h1>
+<h2>The getElementsByTagName() Method</h2>
+
+<ul>
+  <li>Coffee</li>
+  <li>Tea</li>
+</ul>
+
+<p>Click "Change" to change the text of the first list item.</p>
+<button onclick="myFunction()">Change</button>
+
+<script>
+function myFunction() {
+  const list = document.getElementsByTagName("UL")[0];
+  list.getElementsByTagName("li")[0].innerHTML = "Milk";
+}
+</script>
+
+</body>
+</html>
+
+**************************************************************************************************************
+
+
+ What are the various selectors present in Javascript - 
+-getElementById()
+-getElementByClassName()
+-getElementByName()
+-getElementByTagName()
+
+**************************************************************************************************************
+
+
+ How to render work in react ?
+-React renders HTML to the web page by using a function called render().
+-In the render() method, we can read props and state and return our JSX code to the root component of our app.
+
+*****************************************************************************************
+
+JavaScript primitive data types -
+
+Data Type	         Description
+
+ String	          represents sequence of characters e.g. "hello"
+ Number	          represents numeric values e.g. 100
+ Boolean	  represents boolean value either false or true
+ Undefined	  represents undefined value
+ Null	          represents null i.e. no value at all 
+
+*****************************************************************************************
+
+JavaScript Operators - 
+
+-Arithmetic Operators
+-Comparison (Relational) Operators
+-Bitwise Operators
+-Logical Operators
+-Assignment Operators
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
