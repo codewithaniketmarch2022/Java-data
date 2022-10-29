@@ -1,0 +1,196 @@
+-React has the same events as HTML: click, change, mouseover etc.
+
+
+1) Differentiate between Real DOM and Virtual DOM.
+               
+   Real DOM	                                Virtual  DOM
+1. It updates slow.	                     1. It updates faster.
+2. Can directly update HTML.	             2. Can’t directly update HTML.
+3. Creates a new DOM if element updates.     3. Updates the JSX if element updates.
+4. DOM manipulation is very expensive.	     4. DOM manipulation is very easy.
+5. Too much of memory wastage.	             5. No memory wastage.
+
+
+
+2) List some of the major advantages of React.
+-It increases the application’s performance
+-It can be conveniently used on the client as well as server side
+-Because of JSX, code’s readability increases
+-React is easy to integrate with other frameworks like Meteor, Angular, etc
+-Using React, writing UI test cases become extremely easy.
+
+
+
+3) What are the limitations of React?
+-React is just a library, not a full-blown framework
+-Its library is very large and takes time to understand
+-It can be little difficult for the novice programmers to understand
+-Coding gets complex as it uses inline templating and JSX.
+
+
+
+4) What is JSX ?
+-JSX stands for JavaScript XML,JSX allows us to write HTML in React.
+-JSX makes it easier to write and add HTML in React.
+
+
+
+5) what is component in react ?
+-Components are the building blocks of a React application’s UI.
+-These components split up the entire UI into small independent and reusable pieces. 
+-Then it renders each of these components independent of each other without affecting the rest  of the UI.
+-React components can be reusable,So in huge project there is no need to write an repeat code.
+-Types of components 
+
+    -Class component - render() is present.
+    -Function component - render() is not present.
+
+
+
+6) What is the purpose of render() in React ?
+-Each React component must have a render() mandatorily.
+-It returns a single React element which is the representation of the native DOM component.
+-If more than one HTML element needs to be rendered, then they must be grouped together    inside one enclosing tag such as <form>, <group>,<div> etc.
+
+
+
+7)What is Props?
+-Props means properties.
+-It passing the arguments inside the react components.
+--They are immutable.
+
+
+
+8) What is a state in React and how is it used?
+-States are the heart of React components. States are the source of data and must be kept as  simple as possible.
+-Basically, states are the objects which determine components rendering and behavior.
+-They are mutable.
+-They are accessed this.state()
+
+
+
+
+9) Diff between state and props ?
+ 
+SN	     Props	                                                State
+
+1.	Props are read-only.	                      State changes can be asynchronous.
+2.	Props are immutable.	                      State is mutable.
+3.      Props can be accessed by the                  State cannot be accessed by child components.
+        child component.
+4.      The stateless component can have Props.       The stateless components cannot have State.
+5.      Props make components reusable.               State cannot make components reusable.
+
+
+
+10) What is arrow function in React? How is it used ?
+-Arrow functions are more of brief syntax for writing the function expression. They are also  called ‘fat arrow‘ (=>) the functions.
+-With arrow functions, the this keyword always represents the object that defined the arrow  function.
+
+e.g
+   // using arrow functions
+      let x = (x, y) => x * y;
+
+
+
+
+11) What are the different phases of React component’s lifecycle ?
+
+There are three different phases of React component’s lifecycle:
+
+-Initial Rendering Phase: This is the phase when the component is about to start its life  journey and make its way to the DOM.
+
+-Updating Phase: Once the component gets added to the DOM, it can potentially update and re- render only when a prop or state change occurs. That happens only in this phase.
+
+-Unmounting Phase: This is the final phase of a component’s life cycle in which the component  is destroyed and removed from the DOM.
+
+
+
+
+12) What is an event in React ?
+-In React, events are the triggered reactions to specific actions like mouse hover, mouse  click, key press, etc.
+e.g 
+   <div onClick={this.show}>Click Me!</div>
+
+
+
+13) what is refs in react ?
+-Refs are a function used for to access the DOM element and the React element that you might have created on your own.
+
+
+
+14) How to create a form in React ?
+-In React, form data is usually handled by the components.
+-When the data is handled by the components, all the data is stored in the component state. - You can control changes by adding event handlers in the onChange attribute and that event   handler will be used to update the state of the variable.
+
+
+
+15) What is flux ?
+-Flux is a pattern for managing how data flows through a React application.
+
+
+
+16) What is redux ?
+-Redux is an open-source JavaScript library used to manage application state. React uses Redux  for building the user interface.
+
+
+
+17) What is react router ?
+-React Router is a powerful routing library built on top of React, which helps in adding new  screens  and flows to the application.
+-This keeps the URL in sync with data that’s being displayed on the web page. 
+-It maintains a standardized structure and behavior and is used for developing single page web   applications. 
+-React Router has a simple API.
+
+
+
+
+18) Difference between ES5 and ES6 ?      
+ 
+
+                ES5	                                       ES6
+
+      ECMA script 5,                                     - ECMA script 6
+     -It was introduced in 2009.	                 - It was introduced in 2015.
+
+   -It supports primitive data types that                - In ES6, there are some additions to
+    are string, number, boolean, null, and                 JavaScript data types.
+    undefined.                                           
+  
+    -There are only one way to define the                - There are two new ways to define variables 
+     variables by using the var keyword.                   that are let and const.
+
+    -It has a lower performance as compared              - It has a higher performance than ES5.
+     to ES6.
+
+    -Object manipulation is time-consuming in ES5.       - Object manipulation is less 
+                                                           time-consuming in ES6.
+
+    -It provides a larger range of community             - It provides a less range of community
+     supports than that of ES6.                            supports than that of ES5.
+
+
+
+
+
+19) what is HOC ?
+-A higher-order component (HOC) is an advanced technique in React for reusing component logic.
+-It is a function that takes a component and returns a new component. 
+
+
+
+
+20) What are Styled Components ?
+-Styled-Components is a library for React. 
+- It is the successor of CSS Modules. 
+
+The styled-components provides:
+
+  - Automatic critical CSS.
+  - No class name bugs.
+  - Easier deletion of CSS.
+  - Simple dynamic styling.
+  - Painless maintenance.
+
+
+
+
