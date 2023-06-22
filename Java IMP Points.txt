@@ -1,0 +1,557 @@
+--in java only in array while using length method only length is used and in all    other cases length() is used...
+--wrapper class for int is the nextInt in java.
+--wrapper class for the String is nextLine in java.
+--for concatination ""+ is used.
+
+
+-- In java method overriding is done in different class i.e super and subclass, it means method inside the subclass is overrided the method inside the super class...
+
+
+
+---Method overloading is done in only one class...
+---If a class has multiple methods having same name but different in parameters, it is known as Method Overloading.
+---In method overloading if return type is int or any other data types then its necessary to write return statement inside the method.
+---If return type is void then no need of return statement...
+e.g  int add(int a,int b){
+           return a+b;}
+
+e.g  void add(int a,int b){
+           System.out.println(a+b);}
+
+
+
+
+realtime e.g of abstraction--
+*****************************
+-Abstraction is a process of hiding the implementation details and showing only functionality to the user.
+-when we are driving a car, we are only concerned about driving the car like start/stop the car, accelerate/ break, etc. We are not concerned about how the actual start/stop mechanism or accelerate/brake process works internally. We are just not interested in those details.
+
+//abstract class
+abstract class Car{  
+    abstract void accelerate();  
+}  
+//concrete class
+class Suzuki extends Car{  
+    void accelerate(){
+        System.out.println("Suzuki::accelerate");
+     
+    }
+}
+class AbstractionExample{
+    public static void main(String args[]){  
+        Car obj = new Suzuki();    //Car object =>contents of Suzuki
+        obj.accelerate();          //call the method  
+    }   
+} 
+
+output - Suzuki::accelerate
+
+Java provides a non-access modifier “abstract” for implementing abstraction. This abstract modifier can be used with classes and methods but not variables.
+
+An abstract class can be defined as a class declared with the keyword “abstract” and has a restriction that it cannot be instantiated.
+
+
+-realtime e.g of Encapsulation--
+*******************************
+
+Encapsulation is a way of hiding the implementation details of a class from outside access and only exposing a public interface that can be used to interact with the class.
+
+In Java, encapsulation is achieved by declaring the instance variables of a class as private, which means they can only be accessed within the class. To allow outside access to the instance variables, public methods called getters and setters are defined, which are used to retrieve and modify the values of the instance variables, respectively. By using getters and setters, the class can enforce its own data validation rules and ensure that its internal state remains consistent.
+
+
+class Person {
+	private String name;
+	private int age;
+
+	public String getName() { return name; }
+
+	public void setName(String name) { this.name = name; }
+
+	public int getAge() { return age; }
+
+	public void setAge(int age) { this.age = age; }
+}
+
+public class EncapsulationExample {
+	public static void main(String[] args)
+	{
+		Person obj = new Person();
+		obj.setName("John");
+		obj.setAge(30);
+
+		System.out.println("Name: " + obj.getName());
+		System.out.println("Age: " + obj.getAge());
+	}
+}
+
+output - Name: John
+         Age: 30
+
+
+Encapsulation is defined as the wrapping up of data under a single unit. It is the mechanism that binds together code and the data it manipulates.
+
+
+--Needs of Oops-(why oops...)-
+******************************
+OOP provides a clear structure for the programs. OOP helps to keep the Java code DRY "Don't Repeat Yourself", and makes the code easier to maintain, modify and debug. OOP makes it possible to create full reusable applications with less code and shorter development time.
+
+Tip: The "Don't Repeat Yourself" (DRY) principle is about reducing the repetition of code.
+
+
+
+
+-Ways to achieve Abstraction-
+*****************************
+There are two ways to achieve abstraction in java
+
+1) Abstract class (0 to 100%)
+2) Interface (100%)
+
+
+
+1) Abstract class in Java--
+**************************
+-A class which is declared with the abstract keyword is known as an abstract class in Java. It can have abstract and non-abstract methods (method with the body).
+-The abstract keyword is a non-access modifier, used for classes and methods: Abstract class: is a restricted class that cannot be used to create objects (to access it, it must be inherited from another class). Abstract method: can only be used in an abstract class, and it does not have a body.
+
+Points to Remember about abstract class - 
+-An abstract class must be declared with an abstract keyword.
+-It can have abstract and non-abstract methods.
+-It cannot be instantiated.
+-It can have constructors and static methods also.
+-It can have final methods which will force the subclass not to change the body of the method.
+
+Example of abstract class-
+abstract class ArmstrongNo{}  
+
+Abstract Method in Java--
+-A method which is declared as abstract and does not have implementation is known as an abstract method.
+
+Example of abstract method
+abstract void printStatus(); //no method body and abstract
+
+
+-Example of Abstract class that has an abstract method--
+In this example, Bike is an abstract class that contains only one abstract method run. Its implementation is provided by the Honda class.
+
+e.g-
+
+abstract class Bike{  
+  abstract void run();  
+}  
+class Honda4 extends Bike{  
+void run(){
+System.out.println("running safely");
+}  
+public static void main(String args[]){  
+ Bike obj = new Honda4();  
+ obj.run();  
+}  
+} 
+ 
+Output-
+running safely 
+
+
+Q Why abstract class is used .?
+-An abstract class is a good choice if we are using the inheritance concept since it provides a common base class implementation to derived classes.
+-An abstract class is also good if we want to declare non-public members. In an interface, all methods must be public.
+-If we want to add new methods in the future, then an abstract class is a better choice. Because if we add new methods to an interface, then all of the classes that already implemented that interface will have to be changed to implement the new methods.
+-Abstract classes have the advantage of allowing better forward compatibility. Once clients use an interface, we cannot change it; if they use an abstract class, we can still add behavior without breaking the existing code.
+-If we want to provide common, implemented functionality among all implementations of our component, use an abstract class. Abstract classes allow us to partially implement our class, whereas interfaces contain no implementation for any members.
+
+
+
+Q Why abstract method has no method body..?
+-An abstract method has no body. (It has no statements.) It declares an access modifier, return type, and method signature followed by a semicolon. A non-abstract child class inherits the abstract method and must define a non-abstract method that matches the abstract method.
+
+
+2) Interface in Java--
+**********************
+-An interface in Java is a blueprint of a class. It has abstract methods.
+-The interface in Java is a mechanism to achieve abstraction,
+-There can be only abstract methods in the Java interface, not method body. 
+-It is used to achieve abstraction and multiple inheritance in Java.
+-interface variables are public,static and final.
+-It cannot be instantiated just like the abstract class.
+-Since Java 8, we can have default and static methods in an interface.
+-Since Java 9, we can have private methods in an interface.
+
+
+Q Why use Java interface?
+There are mainly three reasons to use interface. They are given below.--
+
+-It is used to achieve abstraction.
+-By interface, we can support the functionality of multiple inheritance.
+-It can be used to achieve loose coupling.
+
+
+Java Interface Example-
+-In this example, the Printable interface has only one method, and its implementation is provided in the A6 class.
+
+
+e.g 
+
+interface printable{   //methods in interfaces does not contain method body....
+void print();  
+}  
+class A6 implements printable{  
+public void print(){System.out.println("Hello");}  
+  
+public static void main(String args[]){  
+A6 obj = new A6();  
+obj.print();  
+ }  
+}  
+
+
+Output:
+
+Hello
+
+Q. Multiple inheritance in Java by interface with example as follows - 
+
+-If a class implements multiple interfaces, or an interface extends multiple interfaces, it is known as multiple inheritance.
+
+e.g-
+
+interface Printable{  
+void print();  
+}  
+interface Showable{  
+void show();  
+}  
+class A7 implements Printable,Showable{  
+public void print(){
+System.out.println("Hello");
+}  
+public void show(){
+System.out.println("Welcome");
+}    
+public static void main(String args[]){  
+A7 obj = new A7();  
+obj.print();  
+obj.show();  
+ }  
+}  
+
+
+Output:Hello
+       Welcome
+ 
+
+
+Q) Multiple inheritance is not supported through class in java, but it is possible by an interface, why?
+-As we have explained in the inheritance chapter, multiple inheritance is not supported in the case of class because of ambiguity. However, it is supported in case of an interface because there is no ambiguity. It is because its implementation is provided by the implementation class. 
+For example:
+
+
+interface Printable{  
+void print();  
+}  
+interface Showable{  
+void print();  
+}  
+  
+class TestInterface3 implements Printable, Showable{  
+public void print(){
+System.out.println("Hello");
+}  
+public static void main(String args[]){  
+TestInterface3 obj = new TestInterface3();  
+obj.print();  
+ }  
+}  
+
+
+Output:
+Hello
+
+
+#String concept as follows - 
+-What are Strings in Java?
+*************************
+Strings are the type of objects that can store the character of values. A string acts as an array of characters in Java.
+In Java, objects of String are immutable which means a constant and cannot be changed once created.
+Example:  
+
+String str = "Geeks";
+
+
+Example of code for string - 
+// Java Program to demonstrate String
+
+public class StringExample {
+
+	// Main Function
+	public static void main(String args[])
+	{
+		String s1 = new String("example");
+		// creating Java string by new keyword
+		// this statement create two object i.e
+		// first the object is created in heap
+		// memory area and second the object is
+		// created in String constant pool.
+
+		System.out.println(s1);
+	}
+}
+
+Output - example
+
+
+
+-Ways of Creating a String-
+There are two ways to create a string in Java:-
+1) String Literal-
+2) Using new Keyword-
+
+1) String literal-
+To make Java more memory efficient (because no new objects are created if it exists already in the string constant pool). 
+
+Example:-
+String s = “GeeksforGeeks”;
+
+
+2) Using new keyword-
+Example:-
+String s = new String(“Welcome”);
+
+In such a case, JVM will create a new string object in normal (non-pool) heap memory and the literal “Welcome” will be placed in the string constant pool. The variable s will refer to the object in the heap (non-pool)
+Example:
+String s = new String (“GeeksforGeeks”);
+
+
+
+-CharBuffer: This class implements the CharSequence interface. This class is used to allow character buffers to be used in place of CharSequences. An example of such usage is the regular-expression package java.util.regex
+
+CharSequence Interface-
+CharSequence Interface is used for representing the sequence of Characters in Java. Classes that are implemented using the CharSequence interface are mentioned below:
+
+1)String (we already learn about string at above -)
+2)StringBuffer-
+3)StringBuilder-
+
+1. StringBuffer
+StringBuffer is a peer class of String that provides much of the functionality of strings. The string represents fixed-length, immutable character sequences while StringBuffer represents growable and writable character sequences.
+
+Syntax:
+
+StringBuffer s = new StringBuffer("GeeksforGeeks");
+
+
+2. StringBuilder
+StringBuilder in Java represents a mutable sequence of characters. Since the String Class in Java creates an immutable sequence of characters, the StringBuilder class provides an alternative to String Class, as it creates a mutable sequence of characters.
+
+Syntax:
+
+StringBuilder str = new StringBuilder();
+str.append("GFG");
+
+
+
+
+-Immutable String in Java-
+**************************
+In Java, string objects are immutable. Immutable simply means unmodifiable or unchangeable. Once a string object is created its data or state can’t be changed but a new string object is created.
+
+example -
+ 
+// Java Program to demonstrate Immutable String in Java
+import java.io.*;
+
+class GFG {
+	public static void main(String[] args)
+	{
+		String s = "Sachin";
+	
+		// concat() method appends
+		// the string at the end
+		s.concat(" Tendulkar"); 
+	
+		// This will print Sachin
+		// because strings are
+		// immutable objects
+		System.out.println(s);
+	}
+}
+
+Output-
+       Sachin
+
+Here Sachin is not changed but a new object is created with “Sachin Tendulkar”. That is why a string is known as immutable.
+
+As you can see in the given figure that two objects are created but s reference variable still refers to “Sachin” and not to “Sachin Tendulkar”. But if we explicitly assign it to the reference variable, it will refer to the “Sachin Tendulkar” object.           
+
+For Example:
+
+// Java Program to demonstrate Explicitly assigned strings
+import java.io.*;
+
+class GFG {
+	public static void main(String[] args)
+	{
+		String s = "Sachin";
+		s = s.concat(" Tendulkar");  //before tendulkar one space is provided because it will also provide that space in output also...
+		System.out.println(s);
+	}
+}
+Output-
+       Sachin Tendulkar
+
+
+-Memory Allotment of String-
+****************************
+-Whenever a String Object is created as a literal, the object will be created in the String constant pool. This allows JVM to optimize the initialization of String literal.
+Example: 
+String str = "Geeks";
+
+
+
+-The string can also be declared using a new operator i.e. dynamically allocated. In case of String are dynamically allocated they are assigned a new memory location in the heap. This string will not be added to the String constant pool.
+Example: 
+String str = new String("Geeks");
+
+
+
+Q).What are strings in Java?
+Strings are the types of objects which can store characters as elements. 
+
+Q).Why string objects are immutable in Java?
+Because java uses the concept of string literal. Suppose there are 5 reference variables, all refer to one object “Sachin”. If one reference variable changes the value of the object, it will be affected by all the reference variables. That is why string objects are immutable in java.
+
+Q).Why Java uses the concept of string literal?
+To make Java more memory efficient (because no new objects are created if it exists already in the string constant pool). 
+
+
+
+-Difference between StringBuilder vs StringBuffer in Java -
+***********************************************************
+StringBuffer Class- 
+-StringBuffer is present in Java.
+-StringBuffer is synchronized. This means that multiple threads cannot call the methods of StringBuffer simultaneously.
+-Due to synchronization, StringBuffer is called a thread safe class.
+-Due to synchronization, StringBuffer is lot slower than StringBuilder.
+
+
+StringBuilder Class-
+-StringBuilder was introduced in Java 5.
+-StringBuilder is asynchronized. This means that multiple threads can call the methods of StringBuilder simultaneously.
+-Due to its asynchronous nature, StringBuilder is not a thread safe class.
+-Since there is no preliminary check for multiple threads, StringBuilder is a lot faster than StringBuffer.
+
+
+
+-Types of memory in java- 
+*************************
+1) Stack memory -
+-All variables and methods stored in stack memory.
+-It follows LIFO.
+-small in size.
+-Cost is less.
+-It is done automatically by compiler.
+-It is not flexible because it is not possible to alter allocated memory.
+
+
+2) Heap memory - 
+-All objects are stored in Heap memory.
+-Not follows any order.
+-Large in size.
+-Cost is high.
+-It is done manually by programmer.
+-It is flexible because we can alter the allocated memory.
+
+
+
+
+
+
+Object Class -
+**************
+-We can also say that the Object class in Java is the parent class for all the classes.
+-In other words, it is the topmost class of java.
+-Object class is present in java.lang package.
+-Every class in Java is directly or indirectly derived from the Object class.
+-Therefore the Object class methods are available to all Java classes. Hence Object class acts as a root of the  inheritance hierarchy in any Java Program.
+
+Using Object Class Methods
+The Object class provides multiple methods which are as follows:
+
+-tostring() method
+-hashCode() method
+-equals() method
+-wait() method
+-notify() method
+-notifyAll() method
+-finalize() method
+-getClass() method
+-clone() method
+
+1)toString() - The toString() method returns the String representation of the object.or The toString() method converts the object into a string and returns it.
+
+Example :- 
+
+class demo{
+	public static void main(String [] args){
+		demo obj = new demo();  //object is a created...
+		System.out.println(obj.toString());
+		
+	}
+}
+
+Output: demo@2c7b84de
+
+
+
+2)hashCode() method -  Hashcode is a unique code generated by the JVM at time of creation of the object.
+-It returns an integer value which represents hashCode value for this Method.
+
+Example :- 
+
+import java.io.*;
+class demo{
+	public static void main(String [] args){
+		String a = "252";
+		System.out.println(a.hashCode());	
+	}
+}
+
+Output: 49743
+
+
+
+3)equals() method - The equals() method compares two strings, and returns true if the strings are equal, and false if not.
+Example 1 - 
+class demo{
+	public static void main(String [] args){
+	String s1 = "aniket";
+        String s2 = "nalavade";	
+	
+	System.out.println(s1.equals(s2));
+		
+	}
+}
+
+Output - False
+
+
+Example 2 - 
+class demo{
+	public static void main(String [] args){
+	String s1 = "aniket";
+        String s2 = "aniket";
+	
+	System.out.println(s1.equals(s2));
+		
+	}
+}
+
+Output - True
+
+
+
+
+
+
+
+
