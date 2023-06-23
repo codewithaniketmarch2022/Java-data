@@ -1,0 +1,1110 @@
+--in java only in array while using length method only length is used and in all    other cases length() is used...
+--wrapper class for int is the nextInt in java.
+--wrapper class for the String is nextLine in java.
+--for concatination ""+ is used.
+
+
+-- In java method overriding is done in different class i.e super and subclass, it means method inside the subclass is overrided the method inside the super class...
+
+
+
+---Method overloading is done in only one class...
+---If a class has multiple methods having same name but different in parameters, it is known as Method Overloading.
+---In method overloading if return type is int or any other data types then its necessary to write return statement inside the method.
+---If return type is void then no need of return statement...
+e.g  int add(int a,int b){
+           return a+b;}
+
+e.g  void add(int a,int b){
+           System.out.println(a+b);}
+
+
+
+
+realtime e.g of abstraction--
+*****************************
+-Abstraction is a process of hiding the implementation details and showing only functionality to the user.
+-when we are driving a car, we are only concerned about driving the car like start/stop the car, accelerate/ break, etc. We are not concerned about how the actual start/stop mechanism or accelerate/brake process works internally. We are just not interested in those details.
+
+//abstract class
+abstract class Car{  
+    abstract void accelerate();  
+}  
+//concrete class
+class Suzuki extends Car{  
+    void accelerate(){
+        System.out.println("Suzuki::accelerate");
+     
+    }
+}
+class AbstractionExample{
+    public static void main(String args[]){  
+        Car obj = new Suzuki();    //Car object =>contents of Suzuki
+        obj.accelerate();          //call the method  
+    }   
+} 
+
+output - Suzuki::accelerate
+
+Java provides a non-access modifier “abstract” for implementing abstraction. This abstract modifier can be used with classes and methods but not variables.
+
+An abstract class can be defined as a class declared with the keyword “abstract” and has a restriction that it cannot be instantiated.
+
+
+-realtime e.g of Encapsulation--
+*******************************
+
+Encapsulation is a way of hiding the implementation details of a class from outside access and only exposing a public interface that can be used to interact with the class.
+
+In Java, encapsulation is achieved by declaring the instance variables of a class as private, which means they can only be accessed within the class. To allow outside access to the instance variables, public methods called getters and setters are defined, which are used to retrieve and modify the values of the instance variables, respectively. By using getters and setters, the class can enforce its own data validation rules and ensure that its internal state remains consistent.
+
+
+class Person {
+	private String name;
+	private int age;
+
+	public String getName() { return name; }
+
+	public void setName(String name) { this.name = name; }
+
+	public int getAge() { return age; }
+
+	public void setAge(int age) { this.age = age; }
+}
+
+public class EncapsulationExample {
+	public static void main(String[] args)
+	{
+		Person obj = new Person();
+		obj.setName("John");
+		obj.setAge(30);
+
+		System.out.println("Name: " + obj.getName());
+		System.out.println("Age: " + obj.getAge());
+	}
+}
+
+output - Name: John
+         Age: 30
+
+
+Encapsulation is defined as the wrapping up of data under a single unit. It is the mechanism that binds together code and the data it manipulates.
+
+
+--Needs of Oops-(why oops...)-
+******************************
+OOP provides a clear structure for the programs. OOP helps to keep the Java code DRY "Don't Repeat Yourself", and makes the code easier to maintain, modify and debug. OOP makes it possible to create full reusable applications with less code and shorter development time.
+
+Tip: The "Don't Repeat Yourself" (DRY) principle is about reducing the repetition of code.
+
+
+
+
+-Ways to achieve Abstraction-
+*****************************
+There are two ways to achieve abstraction in java
+
+1) Abstract class (0 to 100%)
+2) Interface (100%)
+
+
+
+1) Abstract class in Java--
+**************************
+-A class which is declared with the abstract keyword is known as an abstract class in Java. It can have abstract and non-abstract methods (method with the body).
+-The abstract keyword is a non-access modifier, used for classes and methods: Abstract class: is a restricted class that cannot be used to create objects (to access it, it must be inherited from another class). Abstract method: can only be used in an abstract class, and it does not have a body.
+
+Points to Remember about abstract class - 
+-An abstract class must be declared with an abstract keyword.
+-It can have abstract and non-abstract methods.
+-It cannot be instantiated.
+-It can have constructors and static methods also.
+-It can have final methods which will force the subclass not to change the body of the method.
+
+Example of abstract class-
+abstract class ArmstrongNo{}  
+
+Abstract Method in Java--
+-A method which is declared as abstract and does not have implementation is known as an abstract method.
+
+Example of abstract method
+abstract void printStatus(); //no method body and abstract
+
+
+-Example of Abstract class that has an abstract method--
+In this example, Bike is an abstract class that contains only one abstract method run. Its implementation is provided by the Honda class.
+
+e.g-
+
+abstract class Bike{  
+  abstract void run();  
+}  
+class Honda4 extends Bike{  
+void run(){
+System.out.println("running safely");
+}  
+public static void main(String args[]){  
+ Bike obj = new Honda4();  
+ obj.run();  
+}  
+} 
+ 
+Output-
+running safely 
+
+
+Q Why abstract class is used .?
+-An abstract class is a good choice if we are using the inheritance concept since it provides a common base class implementation to derived classes.
+-An abstract class is also good if we want to declare non-public members. In an interface, all methods must be public.
+-If we want to add new methods in the future, then an abstract class is a better choice. Because if we add new methods to an interface, then all of the classes that already implemented that interface will have to be changed to implement the new methods.
+-Abstract classes have the advantage of allowing better forward compatibility. Once clients use an interface, we cannot change it; if they use an abstract class, we can still add behavior without breaking the existing code.
+-If we want to provide common, implemented functionality among all implementations of our component, use an abstract class. Abstract classes allow us to partially implement our class, whereas interfaces contain no implementation for any members.
+
+
+
+Q Why abstract method has no method body..?
+-An abstract method has no body. (It has no statements.) It declares an access modifier, return type, and method signature followed by a semicolon. A non-abstract child class inherits the abstract method and must define a non-abstract method that matches the abstract method.
+
+
+2) Interface in Java--
+**********************
+-An interface in Java is a blueprint of a class. It has abstract methods.
+-The interface in Java is a mechanism to achieve abstraction,
+-There can be only abstract methods in the Java interface, not method body. 
+-It is used to achieve abstraction and multiple inheritance in Java.
+-interface variables are public,static and final.
+-It cannot be instantiated just like the abstract class.
+-Since Java 8, we can have default and static methods in an interface.
+-Since Java 9, we can have private methods in an interface.
+
+
+Q Why use Java interface?
+There are mainly three reasons to use interface. They are given below.--
+
+-It is used to achieve abstraction.
+-By interface, we can support the functionality of multiple inheritance.
+-It can be used to achieve loose coupling.
+
+
+Java Interface Example-
+-In this example, the Printable interface has only one method, and its implementation is provided in the A6 class.
+
+
+e.g 
+
+interface printable{   //methods in interfaces does not contain method body....
+void print();  
+}  
+class A6 implements printable{  
+public void print(){System.out.println("Hello");}  
+  
+public static void main(String args[]){  
+A6 obj = new A6();  
+obj.print();  
+ }  
+}  
+
+
+Output:
+
+Hello
+
+Q. Multiple inheritance in Java by interface with example as follows - 
+
+-If a class implements multiple interfaces, or an interface extends multiple interfaces, it is known as multiple inheritance.
+
+e.g-
+
+interface Printable{  
+void print();  
+}  
+interface Showable{  
+void show();  
+}  
+class A7 implements Printable,Showable{  
+public void print(){
+System.out.println("Hello");
+}  
+public void show(){
+System.out.println("Welcome");
+}    
+public static void main(String args[]){  
+A7 obj = new A7();  
+obj.print();  
+obj.show();  
+ }  
+}  
+
+
+Output:Hello
+       Welcome
+ 
+
+
+Q) Multiple inheritance is not supported through class in java, but it is possible by an interface, why?
+-As we have explained in the inheritance chapter, multiple inheritance is not supported in the case of class because of ambiguity. However, it is supported in case of an interface because there is no ambiguity. It is because its implementation is provided by the implementation class. 
+For example:
+
+
+interface Printable{  
+void print();  
+}  
+interface Showable{  
+void print();  
+}  
+  
+class TestInterface3 implements Printable, Showable{  
+public void print(){
+System.out.println("Hello");
+}  
+public static void main(String args[]){  
+TestInterface3 obj = new TestInterface3();  
+obj.print();  
+ }  
+}  
+
+
+Output:
+Hello
+
+
+#String concept as follows - 
+-What are Strings in Java?
+*************************
+Strings are the type of objects that can store the character of values. A string acts as an array of characters in Java.
+In Java, objects of String are immutable which means a constant and cannot be changed once created.
+Example:  
+
+String str = "Geeks";
+
+
+Example of code for string - 
+// Java Program to demonstrate String
+
+public class StringExample {
+
+	// Main Function
+	public static void main(String args[])
+	{
+		String s1 = new String("example");
+		// creating Java string by new keyword
+		// this statement create two object i.e
+		// first the object is created in heap
+		// memory area and second the object is
+		// created in String constant pool.
+
+		System.out.println(s1);
+	}
+}
+
+Output - example
+
+
+
+-Ways of Creating a String-
+There are two ways to create a string in Java:-
+1) String Literal-
+2) Using new Keyword-
+
+1) String literal-
+To make Java more memory efficient (because no new objects are created if it exists already in the string constant pool). 
+
+Example:-
+String s = “GeeksforGeeks”;
+
+
+2) Using new keyword-
+Example:-
+String s = new String(“Welcome”);
+
+In such a case, JVM will create a new string object in normal (non-pool) heap memory and the literal “Welcome” will be placed in the string constant pool. The variable s will refer to the object in the heap (non-pool)
+Example:
+String s = new String (“GeeksforGeeks”);
+
+
+
+-CharBuffer: This class implements the CharSequence interface. This class is used to allow character buffers to be used in place of CharSequences. An example of such usage is the regular-expression package java.util.regex
+
+CharSequence Interface-
+CharSequence Interface is used for representing the sequence of Characters in Java. Classes that are implemented using the CharSequence interface are mentioned below:
+
+1)String (we already learn about string at above -)
+2)StringBuffer-
+3)StringBuilder-
+
+1. StringBuffer
+StringBuffer is a peer class of String that provides much of the functionality of strings. The string represents fixed-length, immutable character sequences while StringBuffer represents growable and writable character sequences.
+
+Syntax:
+
+StringBuffer s = new StringBuffer("GeeksforGeeks");
+
+
+2. StringBuilder
+StringBuilder in Java represents a mutable sequence of characters. Since the String Class in Java creates an immutable sequence of characters, the StringBuilder class provides an alternative to String Class, as it creates a mutable sequence of characters.
+
+Syntax:
+
+StringBuilder str = new StringBuilder();
+str.append("GFG");
+
+
+
+
+-Immutable String in Java-
+**************************
+In Java, string objects are immutable. Immutable simply means unmodifiable or unchangeable. Once a string object is created its data or state can’t be changed but a new string object is created.
+
+example -
+ 
+// Java Program to demonstrate Immutable String in Java
+import java.io.*;
+
+class GFG {
+	public static void main(String[] args)
+	{
+		String s = "Sachin";
+	
+		// concat() method appends
+		// the string at the end
+		s.concat(" Tendulkar"); 
+	
+		// This will print Sachin
+		// because strings are
+		// immutable objects
+		System.out.println(s);
+	}
+}
+
+Output-
+       Sachin
+
+Here Sachin is not changed but a new object is created with “Sachin Tendulkar”. That is why a string is known as immutable.
+
+As you can see in the given figure that two objects are created but s reference variable still refers to “Sachin” and not to “Sachin Tendulkar”. But if we explicitly assign it to the reference variable, it will refer to the “Sachin Tendulkar” object.           
+
+For Example:
+
+// Java Program to demonstrate Explicitly assigned strings
+import java.io.*;
+
+class GFG {
+	public static void main(String[] args)
+	{
+		String s = "Sachin";
+		s = s.concat(" Tendulkar");  //before tendulkar one space is provided because it will also provide that space in output also...
+		System.out.println(s);
+	}
+}
+Output-
+       Sachin Tendulkar
+
+
+-Memory Allotment of String-
+****************************
+-Whenever a String Object is created as a literal, the object will be created in the String constant pool. This allows JVM to optimize the initialization of String literal.
+Example: 
+String str = "Geeks";
+
+
+
+-The string can also be declared using a new operator i.e. dynamically allocated. In case of String are dynamically allocated they are assigned a new memory location in the heap. This string will not be added to the String constant pool.
+Example: 
+String str = new String("Geeks");
+
+
+
+Q).What are strings in Java?
+Strings are the types of objects which can store characters as elements. 
+
+Q).Why string objects are immutable in Java?
+Because java uses the concept of string literal. Suppose there are 5 reference variables, all refer to one object “Sachin”. If one reference variable changes the value of the object, it will be affected by all the reference variables. That is why string objects are immutable in java.
+
+Q).Why Java uses the concept of string literal?
+To make Java more memory efficient (because no new objects are created if it exists already in the string constant pool). 
+
+
+
+-Difference between StringBuilder vs StringBuffer in Java -
+***********************************************************
+StringBuffer Class- 
+-StringBuffer is present in Java.
+-StringBuffer is synchronized. This means that multiple threads cannot call the methods of StringBuffer simultaneously.
+-Due to synchronization, StringBuffer is called a thread safe class.
+-Due to synchronization, StringBuffer is lot slower than StringBuilder.
+
+
+StringBuilder Class-
+-StringBuilder was introduced in Java 5.
+-StringBuilder is asynchronized. This means that multiple threads can call the methods of StringBuilder simultaneously.
+-Due to its asynchronous nature, StringBuilder is not a thread safe class.
+-Since there is no preliminary check for multiple threads, StringBuilder is a lot faster than StringBuffer.
+
+
+
+-Types of memory in java- 
+*************************
+1) Stack memory -
+-All variables and methods stored in stack memory.
+-It follows LIFO.
+-small in size.
+-Cost is less.
+-It is done automatically by compiler.
+-It is not flexible because it is not possible to alter allocated memory.
+
+
+2) Heap memory - 
+-All objects are stored in Heap memory.
+-Not follows any order.
+-Large in size.
+-Cost is high.
+-It is done manually by programmer.
+-It is flexible because we can alter the allocated memory.
+
+
+
+
+
+
+Object Class -
+**************
+-We can also say that the Object class in Java is the parent class for all the classes.
+-In other words, it is the topmost class of java.
+-Object class is present in java.lang package.
+-Every class in Java is directly or indirectly derived from the Object class.
+-Therefore the Object class methods are available to all Java classes. Hence Object class acts as a root of the  inheritance hierarchy in any Java Program.
+
+Using Object Class Methods
+The Object class provides multiple methods which are as follows:
+
+-tostring() method
+-hashCode() method
+-equals() method
+-wait() method
+-notify() method
+-notifyAll() method
+-finalize() method
+-getClass() method
+-clone() method
+
+1)toString() - The toString() method returns the String representation of the object.or The toString() method converts the object into a string and returns it.
+
+Example :- 
+
+class demo{
+	public static void main(String [] args){
+		demo obj = new demo();  //object is a created...
+		System.out.println(obj.toString());
+		
+	}
+}
+
+Output: demo@2c7b84de
+
+
+
+2)hashCode() method -  Hashcode is a unique code generated by the JVM at time of creation of the object.
+-It returns an integer value which represents hashCode value for this Method.
+
+Example :- 
+
+import java.io.*;
+class demo{
+	public static void main(String [] args){
+		String a = "252";
+		System.out.println(a.hashCode());	
+	}
+}
+
+Output: 49743
+
+
+
+3)equals() method - The equals() method compares two strings, and returns true if the strings are equal, and false if not.
+Example 1 - 
+class demo{
+	public static void main(String [] args){
+	String s1 = "aniket";
+        String s2 = "nalavade";	
+	
+	System.out.println(s1.equals(s2));
+		
+	}
+}
+
+Output - False
+
+
+Example 2 - 
+class demo{
+	public static void main(String [] args){
+	String s1 = "aniket";
+        String s2 = "aniket";
+	
+	System.out.println(s1.equals(s2));
+		
+	}
+}
+
+Output - True
+
+
+4)Wait() method - wait() method is a part of java.lang.Object class. When wait() method is called, the calling thread stops its execution until notify() or notifyAll() method is invoked by some other Thread.
+
+
+5)notify() method - notify method wakes up only one thread waiting on the object and that thread starts execution.
+
+
+6)notifyAll() method - notify method wakes up all thread that are waiting on the object and that thread starts execution one by one by aquiring a lock.
+
+
+7)finalize() method - This is method of object class, Garbage collector always calls just before deletion or destroying of object which is eligible for garbage collector to perform the clean-up activity.
+
+
+8)clone() method -This is method of object class, clone() method that returns the copy of the existing instance.
+
+
+
+
+-Java static keyword- 
+********************
+The static keyword in Java is used for memory management mainly. We can apply static keyword with variables, methods, blocks and nested classes.
+The static can be:
+
+1. Variable (also known as a class variable)
+2. Method (also known as a class method)
+3. Block
+4. Nested class
+
+
+1) Java static variable -
+-If you declare any variable as static, it is known as a static variable.
+-The static variable gets memory only once in the class area at the time of class loading.
+-static variable can be declared as a outside of main method and inside of class with static keyword,the inside the  main method no need to create object for accessing that static variable because they are automatically accessible  because of static keyword. 
+
+2) Java static method - 
+-If you apply static keyword with any method, it is known as static method.
+-A static method can be invoked without the need for creating an instance(object) of a class.
+-If method is declared as static then no need to create object inside the main method for calling that method  because it is automatically accessible by static keyword..
+
+
+3) Java static block - 
+-Is used to initialize the static data member.
+-It is executed before the main method at the time of classloading.
+
+Example of static block - 
+class A2{  
+  static{System.out.println("static block is invoked");}  
+  public static void main(String args[]){  
+   System.out.println("Hello main");  
+  }  
+}  
+
+Output:static block is invoked
+       Hello main
+
+
+
+Q) Why is the Java main method static?
+Ans) It is because the object is not required to call a static method. If it were a non-static method, JVM creates an object first then call main() method that will lead the problem of extra memory allocation.
+
+
+Q) Can we execute a program without main() method?
+Ans) No, one of the ways was the static block, but it was possible till JDK 1.6. Since JDK 1.7, it is not possible to execute a Java class without the main method.
+
+
+
+-Difference between final, finally and finalize -
+*************************************************
+final- final is the keyword and access modifier which is used to apply restrictions on a class, method or  variable.
+-Final keyword is used with the classes, methods and variables.
+-Once declared, final variable becomes constant and cannot be modified,final method cannot be overridden by  sub class,final class cannot be inherited.
+
+
+finally- finally is the block in Java Exception Handling to execute the important code whether the exception  occurs or not.
+-Finally block is always related to the try and catch block in exception handling.
+-finally block runs the important code even if exception occurs or not,finally block cleans up all the  resources used in try block.
+
+
+finalize- finalize is the method in Java which is used to perform clean up processing just before object is  garbage collected.
+-finalize() method is used with the objects.
+-finalize method performs the cleaning activities with respect to the object before its destruction.
+
+
+
+Type Casting in Java -
+**********************
+-In Java, type casting is a method or process that converts a data type into another data type in both ways manually and automatically.
+-The automatic conversion is done by the compiler and manual conversion performed by the programmer
+-Convert a value from one data type to another data type is known as type casting.
+-There are two types of type casting:
+
+1) Widening Type Casting -
+2) Narrowing Type Casting -
+
+1) Widening Type Casting-
+-Converting a lower data type into a higher one is called widening type casting. It is also known as implicit conversion or casting down. It is done automatically. It is safe because there is no chance to lose data.  
+-It takes place when:
+Both data types must be compatible with each other.
+The target type must be larger than the source type.
+example- 
+                byte -> short -> char -> int -> long -> float -> double 
+
+
+
+2)Narrowing Type Casting-
+-Converting a higher data type into a lower one is called narrowing type casting. It is also known as explicit conversion or casting up. It is done manually by the programmer.
+example- 
+              double -> float -> long -> int -> char -> short -> byte 
+
+
+
+
+
+Constructor in java - 
+*********************
+-A constructor is used to initialize the state of an object.
+-In Java, a constructor is a block of codes similar to the method. It is called when an instance of the class is created. At the time of calling constructor, memory for the object is allocated in the memory.
+-very time an object is created using the new() keyword, at least one constructor is called.
+-It calls a default constructor if there is no constructor available in the class. In such case, Java compiler provides a default constructor by default.
+
+Rules for creating Java constructor-
+1) Constructor name must be the same as its class name.
+2) A Constructor must have no explicit return type.
+3) A Java constructor cannot be abstract, static, final, and synchronized.
+
+
+There are two types of constructors in Java:
+
+1) Default constructor (no-arg constructor) -
+2) Parameterized constructor -
+
+1) Default constructor - A constructor is called "Default Constructor" when it doesn't have any parameter.
+
+    Syntax of default constructor:
+                                    <class_name>(){} 
+
+Example - 
+In this example, we are creating the no-arg constructor in the Bike class. It will be invoked at the time of object creation.
+
+
+//Java Program to create and call a default constructor  
+class Bike1{  
+//creating a default constructor  
+Bike1(){System.out.println("Bike is created");}  
+  
+public static void main(String args[]){  
+//calling a default constructor  
+Bike1 b=new Bike1();  
+  }  
+}  
+
+Output:
+Bike is created
+
+
+
+Q) What is the purpose of a default constructor?
+The default constructor is used to provide the default values to the object like 0, null, etc., depending on the type.
+
+
+
+2) Java Parameterized Constructor - A constructor which has a specific number of parameters is called a parameterized constructor.
+-The parameterized constructor is used to provide different values to distinct objects. However, you can provide the same values also.
+
+
+Example of parameterized constructor - 
+In this example, we have created the constructor of Student class that have two parameters. We can have any number of parameters in the constructor.
+
+//Java Program to demonstrate the use of the parameterized constructor.  
+class Student4{  
+    int id;  
+    String name;  
+    //creating a parameterized constructor  
+    Student4(int i,String n){  
+    id = i;  
+    name = n;  
+    }  
+    //method to display the values  
+    void display(){System.out.println(id+" "+name);}  
+   
+    public static void main(String args[]){  
+    //creating objects and passing values  
+    Student4 s1 = new Student4(111,"Karan");  
+    Student4 s2 = new Student4(222,"Aryan");  
+    //calling method to display the values of object  
+    s1.display();  
+    s2.display();  
+   }  
+}  
+
+Output:
+111 Karan
+222 Aryan
+
+
+
+
+
+-Constructor Overloading in Java-
+********************************
+-In Java, a constructor is just like a method but without return type. It can also be overloaded like Java methods.
+-Constructor overloading in Java is a technique of having more than one constructor with different parameter lists. -They are arranged in a way that each constructor performs a different task. They are differentiated by the compiler  by the number of parameters in the list and their types.
+
+
+Example of Constructor Overloading-
+
+//Java program to overload constructors  
+class Student5{  
+    int id;  
+    String name;  
+    int age;  
+    //creating two arg constructor  
+    Student5(int i,String n){  
+    id = i;  
+    name = n;  
+    }  
+    //creating three arg constructor  
+    Student5(int i,String n,int a){  
+    id = i;  
+    name = n;  
+    age=a;  
+    }  
+    void display(){System.out.println(id+" "+name+" "+age);}  
+   
+    public static void main(String args[]){  
+    Student5 s1 = new Student5(111,"Karan");  
+    Student5 s2 = new Student5(222,"Aryan",25);  
+    s1.display();  
+    s2.display();  
+   }  
+}  
+
+Output:
+111 Karan 0
+222 Aryan 25
+
+
+
+
+-Difference between constructor and method in Java -
+***************************************************
+constructor - 
+-A constructor is used to initialize the state of an object.
+-A constructor must not have a return type.
+-The constructor is invoked implicitly.
+-The Java compiler provides a default constructor if you don't have any constructor in a class.
+-The constructor name must be same as the class name.
+
+
+
+method -
+-A method is used to expose the behavior of an object.
+-A method must have a return type.
+-The method is invoked explicitly.
+-The method is not provided by the compiler in any case.
+-The method name may or may not be same as the class name.
+
+
+
+
+-Q) what is wrapper class ?
+***********************
+A Wrapper class is a class whose object wraps primitive data types. When we create an object to a wrapper class, it contains a field and in this field, we can store primitive data types. In other words, we can wrap a primitive value into a wrapper class object.
+
+List of wrapper class as follows - 
+boolean   Boolean
+char      Character
+byte      Byte
+short     Short
+int       Integer
+long      Long
+float     Float
+double    Double
+
+e.g
+
+int a=20;
+Integer i=Integer.valueOf(a);
+
+
+
+
+-Serialization and Deserialization -
+***********************************
+-Serialization is a mechanism of converting the state of an object into a byte stream.
+(byte stream - means to perform input and output to used 8 bit byte...)
+-To make a Java object serializable we implement the java.io.Serializable interface.
+Advantages of Serialization
+1. To save/persist state of an object.
+
+
+-Deserialization is the reverse process where the byte stream is used to recreate the actual Java object in memory.
+
+
+
+
+-Diff between equal() and ==        -
+***************************
+equal() - 
+-Equals() is considered as a method in Java.
+-It is used to compare the actual content of the object.
+-We cannot use the equals method with primitives.
+-Equals() method and can be overridden.
+
+
+
+== -
+- == is considered an operator in Java.
+-It is majorly used to compare the reference values and objects.
+-We can use the == operator with objects and primitives.
+-== operator cannot be overridden.
+
+
+
+
+-Difference between == and === (Javascript...)
+*********************************************
+
+==
+When we compare two variables of different type e.g. a boolean with a string or a number with String using == operator, it automatically converts one type into another and return value based upon content equality.
+
+===
+while === operator is strict equality operator in Java, and only return true if both variable of same type and also contains same value
+
+
+eg of == & ===
+0==false // true, because false is equivalent of 0
+0===false // false, because both operands are of different type 
+2=="2" // true, auto type coercion, string converted into number 
+2==="2" // false, since both operands are not of same type.
+
+
+
+
+-Access Modifiers in Java - 
+***************************
+-There are two types of modifiers in Java: access modifiers and non-access modifiers.
+-The access modifiers in Java specifies the accessibility or scope of a field, method, constructor, or class. We can change the access level of fields, constructors, methods, and class by applying the access modifier on it.
+-There are four types of Java access modifiers:
+
+1) Private: The access level of a private modifier is only within the class. It cannot be accessed from outside the class.
+
+2) Default: The access level of a default modifier is only within the package. It cannot be accessed from outside the package. If you do not specify any access level, it will be the default.
+
+3) Protected: The access level of a protected modifier is within the package and outside the package through child class. If you do not make the child class, it cannot be accessed from outside the package.
+
+4) Public: The access level of a public modifier is everywhere. It can be accessed from within the class, outside the class, within the package and outside the package.
+
+There are many non-access modifiers, such as static, abstract, synchronized, native, volatile, transient, etc.
+
+Understanding Java Access Modifiers-
+1) Private:
+- within class	- Yes
+- within package - No	
+- outside package by subclass only -	No
+- outside package - No
+
+
+2) Default: 
+- within class	- Yes
+- within package - Yes
+- outside package by subclass only -	No
+- outside package - No
+
+
+3) Protected: 
+- within class	- Yes
+- within package - Yes
+- outside package by subclass only -	Yes
+- outside package - No
+
+
+
+4) Public: 
+- within class	- Yes
+- within package - Yes
+- outside package by subclass only -	Yes
+- outside package - Yes
+
+
+
+
+Packages In Java - 
+******************
+-A package is a container of a group of related classes where some of the classes are accessible are exposed and others are kept for internal purpose.
+-Package in Java is a mechanism to encapsulate a group of classes, sub packages and interfaces.
+-Preventing naming conflicts. For example there can be two classes with name Employee in two packages, college.staff.cse.Employee and college.staff.ee.Employee.
+-Making searching/locating and usage of classes, interfaces, enumerations and annotations easier.
+-Packages can be considered as data encapsulation (or data-hiding).
+-We can reuse existing classes from the packages as many time as we need it in our program.
+
+Types of packages:
+1) Built-in Packages-
+2) User-defined packages-
+
+
+1) Built-in Packages-
+1) java.lang: Contains language support classes(e.g classed which defines primitive data types, math operations). This package is automatically imported.
+2)  java.io: Contains classed for supporting input / output operations.
+3)  java.util: Contains utility classes which implement data structures like Linked List, Dictionary and support ; for Date / Time operations.
+4)  java.applet: Contains classes for creating Applets.
+5)  java.awt: Contain classes for implementing the components for graphical user interfaces (like button , ;menus etc).
+6)  java.net: Contain classes for supporting networking operations.
+
+
+
+2) User-defined packages-
+-These are the packages that are defined by the user. First we create a directory myPackage (name should be same as the name of the package). Then create the MyClass inside the directory with the first statement being the package names.
+
+
+// Name of the package must be same as the directory
+// under which this file is saved
+package myPackage;
+
+public class MyClass
+{
+    public void getNames(String s)
+    {        
+        System.out.println(s);        
+    }
+}
+
+
+Now we can use the MyClass class in our program.
+
+
+/* import 'MyClass' class from 'names' myPackage */
+import myPackage.MyClass;
+
+public class PrintName 
+{
+   public static void main(String args[]) 
+   {       
+      // Initializing the String variable 
+      // with a value 
+      String name = "GeeksforGeeks";
+      
+      // Creating an instance of class MyClass in 
+      // the package.
+      MyClass obj = new MyClass();
+      
+      obj.getNames(name);
+   }
+}
+
+Note : MyClass.java must be saved inside the myPackage directory since it is a part of the package.
+
+
+
+this keyword in Java -
+**********************
+-this is a reference variable that refers to the current object.
+-this keyword is used at the only 1st line of constructor..
+-The this keyword can be used to refer current class instance variable. If there is ambiguity between the instance variables and parameters, this keyword resolves the problem of ambiguity.
+-Invoke current class constructor.
+-Invoke current class method.
+-Return the current class object.
+-Pass an argument in the method call.
+-Pass an argument in the constructor call.
+
+example - 
+
+// Java code for using 'this' keyword to
+// refer current class instance variables
+class Test {
+	int a;
+	int b;
+
+	// Parameterized constructor
+	Test(int a, int b)
+	{
+		this.a = a;
+		this.b = b;
+	}
+
+	void display()
+	{
+		// Displaying value of variables a and b
+		System.out.println("a = " + a + " b = " + b);
+	}
+
+	public static void main(String[] args)
+	{
+		Test object = new Test(10, 20);
+		object.display();
+	}
+}
+
+Output
+a = 10  b = 20
+
+
+
+super keyword in Java-
+**********************
+-The super keyword refers to superclass (parent) objects. It is used to call superclass methods, and to access the superclass constructor. 
+-he most common use of the super keyword is to eliminate the confusion between superclasses and subclasses that have methods with the same name.
+
+Example 1-(super is used to refer immediate parent class instance variable)-
+
+-We can use super keyword to access the data member or field of parent class. It is used if parent class and child class have same fields.
+
+
+class Animal{  
+String color="white";  
+}  
+class Dog extends Animal{  
+String color="black";  
+void printColor(){  
+System.out.println(color);//prints color of Dog class  
+System.out.println(super.color);//prints color of Animal class  
+}  
+}  
+class TestSuper1{  
+public static void main(String args[]){  
+Dog d=new Dog();  
+d.printColor();  
+}
+}
+
+Output :
+black
+white 
+
+
+Example 2- (super can be used to invoke parent class method)-
+-The super keyword can also be used to invoke parent class method. It should be used if subclass contains the same method as parent class. In other words, it is used if method is overridden.
+
+class Animal{  
+void eat(){System.out.println("eating...");}  
+}  
+class Dog extends Animal{  
+void eat(){System.out.println("eating bread...");}  
+void bark(){System.out.println("barking...");}  
+void work(){  
+super.eat();  
+bark();  
+}  
+}  
+class TestSuper2{  
+public static void main(String args[]){  
+Dog d=new Dog();  
+d.work();  
+}
+}
+
+Output -
+eating...
+barking...  
+
+
+
+
+
+
+
+
+
+
+
